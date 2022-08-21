@@ -74,5 +74,14 @@ public class MainActivity extends AppCompatActivity {
         input_2.setText("");
         answer.setText("");
     }
-
+    public void useAnswer(View view) {
+        EditText input_1 = findViewById(R.id.number_1);
+        TextView answer = findViewById(R.id.answer);
+        if(input_1.getText().toString().isEmpty()){
+            answer.setText("Make a calculation first");
+            return;
+        }
+        double answer_val = Double.parseDouble((answer.getText().toString()));
+        input_1.setText("" + answer_val);
+    }
 }
