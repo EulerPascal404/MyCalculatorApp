@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         Button minus = findViewById(R.id.minus);
         Button multiply = findViewById(R.id.multiply);
         Button divide = findViewById(R.id.divide);
-        // recolor(this, plus, getResources().getColor(R.color.blue),R.drawable.my_border);
+        //recolor(this, plus, getResources().getColor(R.color.blue),R.drawable.my_border);
         operation_status = 1;
     }
     public void findDiff(View view){
