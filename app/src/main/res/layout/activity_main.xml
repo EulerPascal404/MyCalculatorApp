@@ -130,7 +130,6 @@
         android:layout_height="56dp"
         android:onClick="findSum"
         android:text="+"
-        android:background="@drawable/my_border"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
