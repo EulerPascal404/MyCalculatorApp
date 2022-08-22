@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
     public void useAnswer(View view) {
         EditText input_1 = findViewById(R.id.number_1);
         TextView answer = findViewById(R.id.answer);
-        if(input_1.getText().toString().isEmpty() || input_1.getText().toString().equals("Make a calculation first")){
+        if(input_1.getText().toString().isEmpty() || !isNumeric(input_1.getText().toString())){
             answer.setText("Make a calculation first");
             return;
         }
@@ -127,15 +127,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Code attribution: https://stackoverflow.com/questions/61921805/android-change-background-of-an-xml-file-via-java-code
+     * Source: https://www.baeldung.com/java-check-string-number
      */
-    private void recolor(Context context, TextView textView, @ColorInt int color, int drawableResourceId) {
-        Drawable unwrappedDrawable = AppCompatResources.getDrawable(context, drawableResourceId);
-        if (unwrappedDrawable != null) {
-            DrawableCompat.wrap(unwrappedDrawable);
-            DrawableCompat.setTint(unwrappedDrawable, color);
-            textView.setBackground(unwrappedDrawable);
+    public static boolean isNumeric(String strNum) {
+        if (strNum == null) {
+            return false;
         }
-
+        try {
+            double d = Double.parseDouble(strNum);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
     }
 }
