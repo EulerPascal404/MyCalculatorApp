@@ -18,12 +18,14 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     int operation_status = 0;
-    int color_button_pressed = Color.GREEN;
-    int color_button = Color.RED;
+    int color_button_pressed;
+    int color_button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        color_button_pressed = getResources().getColor(R.color.button_green);
+        color_button = getResources().getColor(R.color.button_red);
     }
 
     public void findResult(View view){
@@ -71,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
         minus.setBackgroundColor(color_button_pressed);
         multiply.setBackgroundColor(color_button);
         divide.setBackgroundColor(color_button);
-        // recolor(this, plus, getResources().getColor(R.color.blue),R.drawable.my_border);
         operation_status = 2;
     }
     public void findProduct(View view){
