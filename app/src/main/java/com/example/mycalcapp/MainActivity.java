@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 result /= num2;
             }
+            result = Math.round(result * 1000) / 1000.0;
             answer.setText("" + result);
         }
     }
