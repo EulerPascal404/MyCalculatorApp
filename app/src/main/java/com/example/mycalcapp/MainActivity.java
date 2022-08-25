@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -28,7 +29,16 @@ public class MainActivity extends AppCompatActivity {
         color_button = getResources().getColor(R.color.button_red);
     }
 
+    public void remKey(){
+        View view_1 = this.getCurrentFocus();
+        if (view_1 != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view_1.getWindowToken(), 0);
+        }
+    }
+
     public void findResult(View view){
+        remKey();
         EditText input_1 = findViewById(R.id.number_1);
         EditText input_2 = findViewById(R.id.number_2);
         TextView answer = findViewById(R.id.answer);
@@ -47,6 +57,10 @@ public class MainActivity extends AppCompatActivity {
             } else if(operation_status == 3){
                 result *= num2;
             } else {
+                if(num2 == (double) 0) {
+                    answer.setText("undefined");
+                    return;
+                }
                 result /= num2;
             }
             result = Math.round(result * 1000000) / 1000000.0;
@@ -55,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void findSum(View view){
+        remKey();
         Button plus = findViewById(R.id.plus);
         Button minus = findViewById(R.id.minus);
         Button multiply = findViewById(R.id.multiply);
@@ -66,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
         operation_status = 1;
     }
     public void findDiff(View view){
+        remKey();
         Button plus = findViewById(R.id.plus);
         Button minus = findViewById(R.id.minus);
         Button multiply = findViewById(R.id.multiply);
@@ -77,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
         operation_status = 2;
     }
     public void findProduct(View view){
+        remKey();
         Button plus = findViewById(R.id.plus);
         Button minus = findViewById(R.id.minus);
         Button multiply = findViewById(R.id.multiply);
@@ -89,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
         operation_status = 3;
     }
     public void findQuotient(View view){
+        remKey();
         Button plus = findViewById(R.id.plus);
         Button minus = findViewById(R.id.minus);
         Button multiply = findViewById(R.id.multiply);
@@ -101,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
         operation_status = 4;
     }
     public void clearEntries(View view){
+        remKey();
         Button plus = findViewById(R.id.plus);
         Button minus = findViewById(R.id.minus);
         Button multiply = findViewById(R.id.multiply);
@@ -118,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
         operation_status = 0;
     }
     public void useAnswer(View view) {
+        remKey();
         EditText input_1 = findViewById(R.id.number_1);
         TextView answer = findViewById(R.id.answer);
         if(input_1.getText().toString().isEmpty() || !isNumeric(input_1.getText().toString())){
