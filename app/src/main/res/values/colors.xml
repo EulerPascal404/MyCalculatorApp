@@ -9,6 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#2196F3</color>
     <color name="button_red">#F44336</color>
-    <color name="light_pink">#FF002D</color>
+    <color name="light_pink">#FFC0CB</color>
     <color name="button_green">#00FF00</color>
 </resources>
