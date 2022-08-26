@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
         remKey();
         EditText input_1 = findViewById(R.id.number_1);
         TextView answer = findViewById(R.id.answer);
-        if(input_1.getText().toString().isEmpty() || !isNumeric(input_1.getText().toString())){
+        if(answer.getText().toString().isEmpty() || !isNumeric(answer.getText().toString())){
             answer.setText("Make a calculation first");
             return;
         }
